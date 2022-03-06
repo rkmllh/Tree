@@ -71,7 +71,7 @@ void tree(const char* target)
 
 				if (w32fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
 				{
-					new_directory = (char*)smart_zmalloc((strlen(target) * sizeof(char) + strlen("\\") * sizeof(char) + strlen(w32fd.cFileName) * sizeof(char)) + 1 * sizeof(char));
+					new_directory = (char*)smart_zmalloc((strlen(target) * sizeof(char) + strlen("\\") * sizeof(char) + strlen(w32fd.cFileName) * sizeof(char)) + sizeof(char));
 					memcpy(new_directory, target, strlen(target) - strlen(APPEND));
 					strcat(new_directory, "\\");
 					strcat(new_directory, w32fd.cFileName);
